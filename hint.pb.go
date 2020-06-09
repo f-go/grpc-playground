@@ -4,7 +4,7 @@
 // 	protoc        v3.12.3
 // source: hint.proto
 
-package gha
+package main
 
 import (
 	context "context"

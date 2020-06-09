@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package grpc_playground;
+
+option go_package = "github.com/f-go/grpc-playgound;grpc_playgound";
+
+import "google/protobuf/timestamp.proto";
+
+message PingRequest {
+    string id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+}
+
+message PingResponse {
+    string id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+}
+
+service Ping {
+    rpc Ping(PingRequest) returns (PingResponse) {}
+}
