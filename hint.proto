@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package gha;
+
+option go_package = "github.com/f-go/grpc-playgroung/gha;gha";
+
+import "google/protobuf/timestamp.proto";
+
+
+message HintRequest {
+    string id = 1;
+    google.protobuf.Timestamp timestamp = 2;
+    google.protobuf.Timestamp last_fetch_time = 3;
+}
+
+message Stay {
+    string check_in_date = 1;
+    uint32 length_of_stay = 2;
+}
+
+message Item {
+    string property = 1;
+    Stay stay = 2;
+}
+
+message HintResponse {
+    repeated Item item = 1;
+}
+
+service Hint {
+    rpc Hint (HintRequest) returns (HintResponse) {}
+}
